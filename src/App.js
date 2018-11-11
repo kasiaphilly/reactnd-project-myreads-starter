@@ -2,6 +2,7 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Bookshelf from './components/Bookshelf'
+import Search from './components/Search'
 
 class BooksApp extends React.Component {
   state = {
@@ -46,9 +47,7 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <Bookshelf/>
             </div>
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
+            <Search/>
           </div>
         )}
       </div>
