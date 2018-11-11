@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Bookshelf from './Bookshelf'
 import Search from './Search'
+import {getAll} from "../BooksAPI"
 
 export default class Homepage extends Component {
   render(){
@@ -10,7 +11,9 @@ export default class Homepage extends Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <Bookshelf/>
+          <Bookshelf title="Reading Now"/>
+          <Bookshelf title="Want To Read"/>
+          <Bookshelf title="Already Read"/>
         </div>
         <Search/>
       </div>
