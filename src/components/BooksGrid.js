@@ -16,7 +16,7 @@ export default class BooksGrid extends Component {
         const {
             books, updateShelf, shelfBooks
         } = this.props
-        return ( < ol className = "books-grid" > { /* shelfBooks array contains filtered books by shelf from previous component */ } {
+        return ( < ol className = "books-grid" > {
             shelfBooks.map((book) => ( < li key = {
                     book.id
                 } >

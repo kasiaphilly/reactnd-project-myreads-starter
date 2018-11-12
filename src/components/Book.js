@@ -45,11 +45,11 @@ export default class Book extends Component {
             } >
             < /div> < div className = "book-shelf-changer" >
             < select
-            //updateShelf function takes the book(containing req id) and the selected dropdown shelf option value
+
             onChange = {
                 (e) => updateShelf(book, e.target.value)
             }
-            //bookShelfValue is evalutated by the hasId variable and if statement above.
+          
             value = {
                 bookShelfValue
             } >

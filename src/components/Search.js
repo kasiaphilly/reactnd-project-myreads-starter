@@ -76,7 +76,7 @@ export default class Search extends Component {
             }
             /> < /div> < /div>
 
-            < div className = "search-books-results" > { /* If query state has value (text search input), show the query and check how many (if any) results/books are returned*/ } {
+            < div className = "search-books-results" > {
                 query && ( < div className = "showing-contacts" >
                     < span > Search
                     for "{query}"
@@ -87,7 +87,7 @@ export default class Search extends Component {
                 )
             }
 
-            < ol className = "books-grid" > { /* If searchedBooks state has value, loop through each book and display results/books*/ } {
+            < ol className = "books-grid" > {
                 searchedBooks.length > 0 && searchedBooks.map((book) => ( < li key = {
                         book.id
                     } >

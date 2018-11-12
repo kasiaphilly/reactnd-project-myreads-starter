@@ -46,6 +46,7 @@ export default class Bookshelf extends Component {
                     shelf.name
                 } < /h2> < div className = "bookshelf-books" >
                 < BooksGrid
+                
                 //filter the books state by matching shelf with current shelves state array
                 shelfBooks = {
                     books.filter(book => book.shelf === shelf.value)
