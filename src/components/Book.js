@@ -21,6 +21,9 @@ export default class Book extends Component {
             book, books, updateShelf
         } = this.props;
 
+        const { imageLinks } = this.props.book;
+        const cover = imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : "placeholder.jpg";
+
         let bookId = book.id,
             bookShelfValue,
             // checking if a book has an assigned shelf
@@ -40,7 +43,7 @@ export default class Book extends Component {
                 {
                     width: 128,
                     height: 193,
-                    backgroundImage: `url(${book.imageLinks.thumbnail})`
+                    backgroundImage: `url(${cover})`
                 }
             } >
             < /div> < div className = "book-shelf-changer" >
@@ -49,7 +52,7 @@ export default class Book extends Component {
             onChange = {
                 (e) => updateShelf(book, e.target.value)
             }
-          
+
             value = {
                 bookShelfValue
             } >
