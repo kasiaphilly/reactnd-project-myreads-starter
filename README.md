@@ -16,7 +16,7 @@ The app was developed within the Udacity Front End Developer Nanodegree.
 
 1. download/clone this project to your desktop:
 ```
-git clone https://github.com/zyud/my-reads.git
+git clone https://github.com/kasiaphilly/reactnd-project-myreads-starter.git
 ```
 2. open cmd / terminal and navigate to the project folder
 3. run the following commands:
