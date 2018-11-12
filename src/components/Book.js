@@ -7,10 +7,11 @@ import {
 }
 from "../BooksAPI"
 import PropTypes from "prop-types"
+import placeholder from '../icons/cover-img.jpg'
 
 export default class Book extends Component {
 
-    static propTypes = {
+    static propTypes = {  
         book: PropTypes.object.isRequired,
         books: PropTypes.array.isRequired,
         updateShelf: PropTypes.func.isRequired
@@ -22,7 +23,7 @@ export default class Book extends Component {
         } = this.props;
 
         const { imageLinks } = this.props.book;
-        const cover = imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : "placeholder.jpg";
+        const cover = imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : placeholder;
 
         let bookId = book.id,
             bookShelfValue,

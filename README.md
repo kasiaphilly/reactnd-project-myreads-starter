@@ -34,3 +34,4 @@ This app uses html, css, JavaScript and the React framework.
 
 1. [Udacity starter kit](https://github.com/udacity/reactnd-project-myreads-starter)
 2. [JavaScript beautifier](https://www.danstools.com/javascript-beautify/)
+3. Book cover [placeholder image](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjU7Kqwsc_eAhXNmuAKHYUZCRAQjRx6BAgBEAU&url=https%3A%2F%2Fwww.libreture.com%2Flibrary%2FMasseR%2Fbook%2Fmetamorphosis%2F&psig=AOvVaw3TioS3II4HC2Qtxr9SfnUe&ust=1542129335021685) 
