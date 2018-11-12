@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, {
+    Component
+}
+from 'react'
 import PropTypes from 'prop-types'
 import Book from './Book'
 
@@ -10,20 +13,24 @@ export default class BooksGrid extends Component {
     }
 
     render() {
-        const { books, updateShelf, shelfBooks } = this.props
-        return (
-            <ol className="books-grid">
-            {/* shelfBooks array contains filtered books by shelf from previous component */}
-            {shelfBooks.map((book) => (
-                <li key={book.id}>
-                    <Book
-                        book={book}
-                        books={books}
-                        updateShelf={updateShelf}
-                    />
-                </li>
-            ))}
-            </ol>
-        )
+        const {
+            books, updateShelf, shelfBooks
+        } = this.props
+        return ( < ol className = "books-grid" > { /* shelfBooks array contains filtered books by shelf from previous component */ } {
+            shelfBooks.map((book) => ( < li key = {
+                    book.id
+                } >
+                < Book book = {
+                    book
+                }
+                books = {
+                    books
+                }
+                updateShelf = {
+                    updateShelf
+                }
+                /> < /li>
+            ))
+        } < /ol>)
     }
 }
