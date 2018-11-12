@@ -3,7 +3,7 @@ import React, {
 }
 from "react";
 import BooksGrid from "./BooksGrid";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
 export default class Bookshelf extends Component {
 
@@ -15,14 +15,14 @@ export default class Bookshelf extends Component {
     state = {
         shelves: [ //array with shelf names
             {
-                value: 'currentlyReading',
-                name: 'Now Reading'
+                value: "currentlyReading",
+                name: "Now Reading"
             }, {
-                value: 'wantToRead',
-                name: 'Want to Read'
+                value: "wantToRead",
+                name: "Want to Read"
             }, {
-                value: 'read',
-                name: 'Already Read'
+                value: "read",
+                name: "Already Read"
             }
         ]
     }

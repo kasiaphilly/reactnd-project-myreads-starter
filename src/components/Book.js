@@ -6,7 +6,7 @@ import {
     update
 }
 from "../BooksAPI"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
 export default class Book extends Component {
 

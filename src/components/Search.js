@@ -2,13 +2,13 @@ import React, {
     Component
 }
 from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import {
     Link
 }
-from 'react-router-dom'
-import Book from './Book'
-import * as BooksAPI from '../BooksAPI'
+from "react-router-dom"
+import Book from "./Book"
+import * as BooksAPI from "../BooksAPI"
 
 export default class Search extends Component {
 
@@ -19,7 +19,7 @@ export default class Search extends Component {
 
     state = {
         searchedBooks: [],
-        query: ''
+        query: ""
     }
 
     // Update query as user starts typing
@@ -28,7 +28,7 @@ export default class Search extends Component {
         this.setState({
             query: query
         })
-        if (query !== '') {
+        if (query !== "") {
             this.searchQuery(query);
         } else {
             this.setState({
@@ -66,7 +66,7 @@ export default class Search extends Component {
             < Link to = "/"
             className = "close-search" > Close < /Link> < div className = "search-books-input-wrapper" >
 
-            < input type = 'text'
+            < input type = "text"
             placeholder = "Search by title or author"
             value = {
                 query
@@ -77,7 +77,7 @@ export default class Search extends Component {
             /> < /div> < /div>
 
             < div className = "search-books-results" > { /* If query state has value (text search input), show the query and check how many (if any) results/books are returned*/ } {
-                query && ( < div className = 'showing-contacts' >
+                query && ( < div className = "showing-contacts" >
                     < span > Search
                     for "{query}"
                     shows {

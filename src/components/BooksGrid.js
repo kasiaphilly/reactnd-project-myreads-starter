@@ -1,9 +1,9 @@
 import React, {
     Component
 }
-from 'react'
-import PropTypes from 'prop-types'
-import Book from './Book'
+from "react"
+import PropTypes from "prop-types"
+import Book from "./Book"
 
 export default class BooksGrid extends Component {
     static propTypes = {
