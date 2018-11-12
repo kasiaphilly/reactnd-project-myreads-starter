@@ -1,89 +1,108 @@
-import React, {Component} from "react";
+import React, {
+    Component
+}
+from "react";
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import {
+    Link
+}
+from 'react-router-dom'
 import Book from './Book'
 import * as BooksAPI from '../BooksAPI'
 
 export default class Search extends Component {
 
-  static propTypes = {
-      books: PropTypes.array.isRequired,
-      updateShelf: PropTypes.func.isRequired
-  }
-
-  state = {
-      searchedBooks: [],
-      query: ''
-  }
-
-  // Update query as user starts typing
-
-  updateQuery = (query) => {
-      this.setState({ query: query})
-      if(query !== '') {
-              this.searchQuery(query);
-      } else {
-        this.setState({ searchedBooks:[] });
-      }
+    static propTypes = {
+        books: PropTypes.array.isRequired,
+        updateShelf: PropTypes.func.isRequired
     }
 
-  //return the search result (if any)
+    state = {
+        searchedBooks: [],
+        query: ''
+    }
 
-  searchQuery(query) {
-      BooksAPI.search(query).then(searchResult => {
-          if(searchResult) {
-              this.setState({ searchedBooks: searchResult })
-          } else {
-              this.setState({ searchedBooks:[] })
-          }
-      })
-  }
+    // Update query as user starts typing
 
-  render(){
-    const { books, updateShelf } = this.props;
-    const { query, searchedBooks } = this.state;
+    updateQuery = (query) => {
+        this.setState({
+            query: query
+        })
+        if (query !== '') {
+            this.searchQuery(query);
+        } else {
+            this.setState({
+                searchedBooks: []
+            });
+        }
+    }
 
-    return (
-        <div className="search-books">
-            <div className="search-books-bar">
-            <Link
-                to="/"
-                className="close-search"
-                >Close
-            </Link>
-                <div className="search-books-input-wrapper">
+    //return the search result (if any)
 
-                    <input
-                        type='text'
-                        placeholder="Search by title or author"
-                        value={query}
-                        onChange={(e) => this.updateQuery(e.target.value)}
-                    />
-                </div>
-            </div>
+    searchQuery(query) {
+        BooksAPI.search(query).then(searchResult => {
+            if (searchResult) {
+                this.setState({
+                    searchedBooks: searchResult
+                })
+            } else {
+                this.setState({
+                    searchedBooks: []
+                })
+            }
+        })
+    }
 
-            <div className="search-books-results">
-            {/* If query state has value (text search input), show the query and check how many (if any) results/books are returned*/}
-            {query && (
-                <div className='showing-contacts'>
-                    <span>Search for "{query}" shows {searchedBooks.length > 0 ? searchedBooks.length : "0"} results</span>
-                </div>
-            )}
+    render() {
+        const {
+            books, updateShelf
+        } = this.props;
+        const {
+            query, searchedBooks
+        } = this.state;
 
-                <ol className="books-grid">
-                {/* If searchedBooks state has value, loop through each book and display results/books*/}
-                {searchedBooks.length > 0 && searchedBooks.map((book) => (
-                    <li key={book.id}>
-                        <Book
-                            book={book}
-                            books={books}
-                            updateShelf={updateShelf}
-                        />
-                    </li>
-                ))}
-                </ol>
-            </div>
-        </div>
-    )
-}
+        return ( < div className = "search-books" >
+            < div className = "search-books-bar" >
+            < Link to = "/"
+            className = "close-search" > Close < /Link> < div className = "search-books-input-wrapper" >
+
+            < input type = 'text'
+            placeholder = "Search by title or author"
+            value = {
+                query
+            }
+            onChange = {
+                (e) => this.updateQuery(e.target.value)
+            }
+            /> < /div> < /div>
+
+            < div className = "search-books-results" > { /* If query state has value (text search input), show the query and check how many (if any) results/books are returned*/ } {
+                query && ( < div className = 'showing-contacts' >
+                    < span > Search
+                    for "{query}"
+                    shows {
+                        searchedBooks.length > 0 ? searchedBooks.length : "0"
+                    }
+                    results < /span> < /div>
+                )
+            }
+
+            < ol className = "books-grid" > { /* If searchedBooks state has value, loop through each book and display results/books*/ } {
+                searchedBooks.length > 0 && searchedBooks.map((book) => ( < li key = {
+                        book.id
+                    } >
+                    < Book book = {
+                        book
+                    }
+                    books = {
+                        books
+                    }
+                    updateShelf = {
+                        updateShelf
+                    }
+                    /> < /li>
+                ))
+            } < /ol> < /div> < /div>
+        )
+    }
 }
