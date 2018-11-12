@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
+import { Link, Route } from 'react-router-dom'
+import Search from './components/Search'
+import Bookshelf from './components/Bookshelf'
 import './App.css'
-import {Switch, Route} from "react-router-dom"
-import SearchPage from './components/SearchPage'
-import Homepage from './components/Homepage'
 
-class BooksApp extends React.Component {
+export default class BooksApp extends React.Component {
   state = {
     books: []
   }
@@ -26,17 +26,33 @@ updateShelf = (book, shelf) => {
   })
 }
 
-
-  render() {
-    return (
-      <div className="app">
-      <Switch>
-        <Route exact path={"/"} component={Homepage}/>
-        <Route exact path={"/search"} component={SearchPage}/>
-      </Switch>
-      </div>
-    )
-  }
+render() {
+  return (
+    <div className="app">
+      <Route path="/search" render={({ history }) => (
+        <Search
+          books={this.state.books}
+          updateShelf={this.updateShelf}
+        />
+      )}/>
+      <Route exact path="/" render={() => (
+        <div className="list-books">
+          <div className="list-books-title">
+            <h1>MyReads</h1>
+          </div>
+          <div className="list-books-content">
+            <Bookshelf
+              books={this.state.books}
+              updateShelf={this.updateShelf}/>
+          </div>
+          <div className="open-search">
+          <Link to="/search">
+            Add a book
+          </Link>
+          </div>
+        </div>
+      )}/>
+    </div>
+  )
 }
-
-export default BooksApp
+}
